@@ -1,6 +1,6 @@
 🐲 Hidden Dragon Chess II: The Rise of the Archer 🐲
 
-Hidden-Gragon-Chess-II-The-Rise-of-Archer-AI-Mode 3 4 5.jpg
+[Hidden-Gragon-Chess-II-The-Rise-of-Archer-AI-Mode 3 4 5.jpg](https://github.com/HHJPZhao/Hidden-Dragon-Chess-II-The-Rise-of-the-Archer-AI-Mode/blob/main/Hidden-Gragon-Chess-II-The-Rise-of-Archer-AI-Mode%203%204%205.jpg)
 
 A unique and strategic chess variant based on Chinese Chess (象棋) combined with a "fog of war" flipping mechanic. All 32 pieces start face-down on a crowded 4x8 board, forcing players to make tactical decisions about what to reveal and when to attack.
 
