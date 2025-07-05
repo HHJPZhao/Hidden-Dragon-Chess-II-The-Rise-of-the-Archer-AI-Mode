@@ -1,5 +1,6 @@
 🐲 Hidden Dragon Chess II: The Rise of the Archer 🐲
-> To add your own screenshot: Take a picture of the game, upload it to your GitHub repository, copy its URL, and replace the link above.
+
+
 
 A unique and strategic chess variant based on Chinese Chess (象棋) combined with a "fog of war" flipping mechanic. All 32 pieces start face-down on a crowded 4x8 board, forcing players to make tactical decisions about what to reveal and when to attack.
 
