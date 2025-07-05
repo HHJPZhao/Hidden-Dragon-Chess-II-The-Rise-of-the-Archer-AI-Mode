@@ -6,7 +6,7 @@ A unique and strategic chess variant based on Chinese Chess (象棋) combined wi
 ▶️ Play the Game Live!
 You can play the latest version of this game, complete with an AI opponent, right here in your browser:
 
-https://hhjpzhao.github.io/Happy-Flip-Chess/
+[https://hhjpzhao.github.io/Happy-Flip-Chess/](https://hhjpzhao.github.io/Hidden-Dragon-Chess-II-The-Rise-of-the-Archer-AI-Mode/)
 
 📜 Table of Contents
 Game Features
