@@ -41,95 +41,15 @@ Move: Choose one of your already revealed pieces and move or capture with it acc
 Piece Movement & Capture Rules
 Pieces can only move to an empty square or to a square occupied by an opponent's revealed piece. Hidden pieces cannot be captured and block movement (except for the Cannon jump).
 
-Piece
-
-Red
-
-Black
-
-Movement & Capture Rules
-
-Score
-
-General
-
-帥
-
-將
-
-Moves and captures one square in any of the 8 directions (like a standard Chess King).
-
-10
-
-Advisor
-
-士
-
-仕
-
-Moves one square in any of the 8 directions to an empty square. Captures one square diagonally only.
-
-2
-
-Elephant
-
-相
-
-象
-
-Moves and captures any number of squares diagonally (like a standard Chess Bishop).
-
-2
-
-Horse
-
-傌
-
-馬
-
-Moves and captures in an 'L' shape and can jump over other pieces (like a standard Chess Knight).
-
-4
-
-Chariot
-
-俥
-
-車
-
-Moves and captures any number of squares in a straight line (like a standard Chess Rook).
-
-9
-
-Cannon
-
-砲
-
-炮
-
-Moves like a Chariot to an empty square. To capture, it must jump over exactly one piece (the "screen") to land on an opponent's piece. The screen can be any piece, hidden or revealed.
-
-5
-
-Soldier
-
-兵
-
-卒
-
-Moves and captures one square in any of the four straight directions (forward, backward, left, right).
-
-1
-
-Archer
-
-弩
-
-弓
-
-Moves one square in a straight direction to an empty square. To capture, it "shoots" over the adjacent square to land on a piece exactly two squares away in any of the 8 directions.
-
-3
+| Piece | Red | Black | Movement & Capture Rules | Score |
+| General | 帥 | 將 | Moves and captures one square in any of the 8 directions (like a standard Chess King). | 10 |
+| Advisor | 士 | 仕 | Moves one square in any of the 8 directions to an empty square. Captures one square diagonally only. | 2 |
+| Elephant | 相 | 象 | Moves and captures any number of squares diagonally (like a standard Chess Bishop). | 2 |
+| Horse | 傌 | 馬 | Moves and captures in an 'L' shape and can jump over other pieces (like a standard Chess Knight). | 4 |
+| Chariot | 俥 | 車 | Moves and captures any number of squares in a straight line (like a standard Chess Rook). | 9 |
+| Cannon | 砲 | 炮 | Moves like a Chariot to an empty square. To capture, it must jump over exactly one piece (the "screen") to land on an opponent's piece. The screen can be any piece, hidden or revealed. | 5 |
+| Soldier | 兵 | 卒 | Moves and captures one square in any of the four straight directions (forward, backward, left, right). | 1 |
+| Archer | 弩 | 弓 | Moves one square in a straight direction to an empty square. To capture, it "shoots" over the adjacent square to land on a piece exactly two squares away in any of the 8 directions. | 3 |
 
 Special Rule: Repetition Penalty
 If a player makes a move that exactly reverses their opponent's last move (e.g., Player A moves a Horse from A1 to B3, and Player B immediately moves it back from B3 to A1), the player making the repetitive move will be penalized 1 point. This encourages dynamic play.
