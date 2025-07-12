@@ -77,7 +77,7 @@
             this.COLS = 8;
             this.ROWS = 4;
             this.SQUARES = this.COLS * this.ROWS;
-            this.scores = { 'k': 10, 'r': 12, 'c': 8, 'h': 7, 'w': 6, 'e': 5, 'a': 4, 's': 3 };
+            this.scores = { 'k': 10, 'r': 9, 'c': 5, 'h': 4, 'w': 3, 'e': 2, 'a': 2, 's': 1 };
             this.reset();
         }
 
@@ -119,14 +119,17 @@
 
             const revealedColorIsRed = this.isRedPiece(cell.piece);
             
+            // The first player gets the color they flipped
             if (firstPlayerIsHuman) {
                 this.humanPlayerColor = revealedColorIsRed ? 'red' : 'black';
-            } else {
+            } else { // The AI is the first player
                 this.humanPlayerColor = revealedColorIsRed ? 'black' : 'red';
             }
             
-            this.isRedTurn = revealedColorIsRed;
-            this.switchTurn();
+            // The turn is now passed to the second player
+            this.isRedTurn = !revealedColorIsRed;
+            
+            this.checkGameOver();
             return { type: 'flip', from: index, to: index };
         }
         
@@ -524,16 +527,17 @@
             this.pregameOverlay.classList.remove('flex');
             
             if (humanFirst) {
-                this.gameStatusEl.textContent = 'Your turn: Flip a piece to begin!';
+                this.updatePlayerUI();
             } else {
-                this.gameStatusEl.textContent = 'AI is making the first move...';
+                this.updatePlayerUI();
                 this.isTurnInProgress = true;
                 setTimeout(() => {
                     const firstFlipIndex = Math.floor(Math.random() * this.game.SQUARES);
                     this.game.handleFirstFlip(firstFlipIndex, false);
                     this.renderBoard();
-                    this.updatePlayerUI();
                     this.isTurnInProgress = false;
+                    this.updatePlayerUI();
+                    this.checkForAITurn(); // **FIXED**: Check for AI turn after its first flip
                 }, 1000);
             }
         }
@@ -627,7 +631,7 @@
         
         isHumanTurnNow() {
             if (!this.game.isGameStarted) return this.humanGoesFirst;
-            return this.game.isRedPiece(this.game.humanPlayerColor) === this.game.isRedTurn;
+            return (this.game.humanPlayerColor === 'red') === this.game.isRedTurn;
         }
 
         checkForAITurn() {
@@ -655,23 +659,20 @@
         }
 
         updatePlayerUI() {
-            const currentTurnColor = this.game.isRedTurn ? 'Red' : 'Black';
             const flippedCount = this.game.board.filter(c => c.isFlipped).length;
-            this.gameStatusEl.innerHTML = `${currentTurnColor}'s Turn <br> (Flipped: ${flippedCount} / 32)`;
+            if (!this.game.isGameStarted) {
+                this.gameStatusEl.textContent = 'Choose who plays first!';
+            } else {
+                const currentTurnColor = this.game.isRedTurn ? 'Red' : 'Black';
+                this.gameStatusEl.innerHTML = `${currentTurnColor}'s Turn <br> (Flipped: ${flippedCount} / 32)`;
+            }
              
             if (this.game.humanPlayerColor) {
                 const humanDisplayColor = this.game.humanPlayerColor === 'red' ? 'Red' : 'Black';
                 const aiDisplayColor = this.game.humanPlayerColor === 'red' ? 'Black' : 'Red';
                 
-                // **MODIFIED**: Update titles and colors
-                this.p1TitleEl.textContent = `Human (${humanDisplayColor})`;
-                this.p2TitleEl.textContent = `AI (${aiDisplayColor})`;
-                
-                this.p1TitleEl.classList.remove('text-red-600', 'text-gray-800');
-                this.p2TitleEl.classList.remove('text-red-600', 'text-gray-800');
-
-                this.p1TitleEl.classList.add(humanDisplayColor === 'Red' ? 'text-red-600' : 'text-gray-800');
-                this.p2TitleEl.classList.add(aiDisplayColor === 'Red' ? 'text-red-600' : 'text-gray-800');
+                this.p1TitleEl.innerHTML = `Human (<span class="${humanDisplayColor === 'Red' ? 'text-red-600' : 'text-gray-800'}">${humanDisplayColor}</span>)`;
+                this.p2TitleEl.innerHTML = `AI (<span class="${aiDisplayColor === 'Red' ? 'text-red-600' : 'text-gray-800'}">${aiDisplayColor}</span>)`;
                 
             } else {
                  this.p1TitleEl.textContent = 'Player 1 (Human)';
@@ -715,3 +716,8 @@
 </script>
 </body>
 </html>
+
+
+
+
+
